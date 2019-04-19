@@ -1,11 +1,14 @@
 # PersonManage
 人事管理系统（Spring boot+ssm + jsp）
-# pull代码请star~~~
-此系统是我的毕业设计项目，部分代码引用https://gitee.com/rainweb/personnel_management_system
+# pull代码请先star~~~
+# 项目描述
+此系统是我的毕业设计项目，部分代码引用 https://gitee.com/rainweb/personnel_management_system
 原项目是比较简单的ssm非maven项目，我已经升级为spring boot项目，
 使用了一些常用的插件，如PageHelper 、mybatis generator，
 使用webSocket实现了简单的聊天室和私聊功能
+# 项目模块
+用户管理 部门管理 职位管理 员工管理 招聘管理 公告管理 下载中心 聊天室
 ## 简单页面如下
-![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/login1.jpg)
-![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/index1.png)
-![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/table1.jpg)
+![登录页](http://github.com/GuoMinJim/PersonManage/raw/master/images/login1.jpg)
+![首页](http://github.com/GuoMinJim/PersonManage/raw/master/images/index1.png)
+![表格图](http://github.com/GuoMinJim/PersonManage/raw/master/images/table1.jpg)
