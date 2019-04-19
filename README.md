@@ -6,5 +6,5 @@
 使用webSocket实现了简单的聊天室和私聊功能
 ## 简单页面如下
 ![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/login.jpg)
-![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/index.jpg)
+![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/index.png)
 ![image](http://github.com/GuoMinJim/PersonManage/raw/master/images/table.jpg)
