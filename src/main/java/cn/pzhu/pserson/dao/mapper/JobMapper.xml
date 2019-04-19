@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pzhu.pserson.dao.dao.JobMapper" >
+  <resultMap id="BaseResultMap" type="cn.pzhu.pserson.domain.Job" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER"/>
+  </resultMap>
+
+  <select id="findAll" resultType="cn.pzhu.pserson.domain.response.JobResDTO">
+   SELECT
+      j.*, d.`name` AS deptName
+    FROM
+      job j
+    LEFT JOIN dept d ON j.dept_id = d.id
+    <where>
+      <if test="content!=null and content!=''">
+        <bind name="key" value="'%'+ content +'%'"/>
+        j.name like #{key} or j.remark like #{key}
+      </if>
+    </where>
+  </select>
+
+  <select id="getJob" resultMap="BaseResultMap">
+    select * from job where dept_id = #{id}
+  </select>
+</mapper>

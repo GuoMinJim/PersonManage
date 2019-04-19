@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pzhu.pserson.dao.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="cn.pzhu.pserson.domain.User" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="loginname" property="loginname" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="CHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="countHeader" resultType="cn.pzhu.pserson.domain.response.IndexHeaderResDTO">
+    select
+    SUM(adminNum) as adminNum ,
+    SUM(deptNum) as deptNum,
+    SUM(employeeNum) as employeeNum,
+    SUM(docNum) as docNum,
+    SUM(noticeNum) as noticeNum
+     from
+     (
+    select count(1) as adminNum,0 as deptNum,0 as employeeNum,0 as docNum,0 as noticeNum from user
+    union
+    select 0,count(1) as deptNum ,0,0,0 from dept
+    union
+    select 0,0,count(1) as employeeNum,0,0 from employee
+    union
+    select 0,0,0,count(1) as docNum, 0 from document
+    union
+    select 0,0,0,0,count(1) as noticeNum from notice
+    ) n
+  </select>
+</mapper>

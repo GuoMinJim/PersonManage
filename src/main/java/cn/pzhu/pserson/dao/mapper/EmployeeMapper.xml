@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pzhu.pserson.dao.dao.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="cn.pzhu.pserson.domain.Employee" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="job_id" property="jobId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="cardId" property="cardId" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="createDate" property="createDate" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <select id="getEmployees" resultType="cn.pzhu.pserson.domain.response.EmployeeResDTO">
+    SELECT
+      e.*, j.`name` AS job,
+      d. NAME AS dept,
+      j.id as jobId,
+      d.id as deptId
+    FROM
+      employee e
+    LEFT JOIN job j ON e.job_id = j.id
+    LEFT JOIN dept d ON e.dept_id = d.id
+    <where>
+      <if test="content!=null and content!=''">
+        <bind name="key" value="'%'+ content +'%'"/>
+        e.name like #{key} or j.name like #{key} or d.name like #{key}
+      </if>
+    </where>
+  </select>
+</mapper>

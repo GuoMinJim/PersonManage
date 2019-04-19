@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pzhu.pserson.dao.dao.RecruitMapper" >
+
+
+  <select id="getRecruit" resultType="cn.pzhu.pserson.domain.response.RecruitResDTO">
+		SELECT
+			r.id,
+			d.name as deptName,
+			d.id as deptId,
+			j.name as jobName,
+			j.id as jobId,
+			r.person_num as personNum,
+			r.remark as remark,
+			r.`status`,
+			r.create_date as createDate
+		FROM
+			recruit r
+		LEFT JOIN dept d ON r.dept_id = d.id
+		LEFT JOIN job j ON j.id = r.job_id
+		<where>
+			<if test="content !='' and content!=null">
+				<bind name="key" value="'%'+ content +'%'"/>
+				deptName like #{key} or jobName like#{key}
+			</if>
+		</where>
+  </select>
+
+	<select id="getRecruitById" resultType="cn.pzhu.pserson.domain.response.RecruitResDTO">
+		SELECT
+			r.id,
+			d.name as deptName,
+			d.id as deptId,
+			j.name as jobName,
+			j.id as jobId,
+			r.person_num as personNum,
+			r.remark as remark,
+			r.`status`,
+			r.create_date as createDate
+		FROM
+			recruit r
+		LEFT JOIN dept d ON r.dept_id = d.id
+		LEFT JOIN job j ON j.id = r.job_id
+		where r.id = #{id}
+	</select>
+</mapper>
