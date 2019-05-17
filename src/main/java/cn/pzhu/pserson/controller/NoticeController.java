@@ -4,6 +4,7 @@ import cn.pzhu.pserson.domain.Notice;
 import cn.pzhu.pserson.service.NoticeService;
 import cn.pzhu.pserson.service.RainService;
 import com.github.pagehelper.PageInfo;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -40,10 +41,11 @@ public class NoticeController {
   }
 
   @RequestMapping(value = "/notice/list", method = RequestMethod.GET)
-  public String index(Model model, String content,int pageNum,int pageSize) {
+  public String index(Model model, String content,int pageNum,int pageSize,HttpSession session) {
     PageInfo notice = noticeService.getNotice(pageNum, pageSize, content);
     model.addAttribute("list", notice.getList());
     model.addAttribute("pageInfo",notice);
+    model.addAttribute("userid",session.getAttribute("userid"));
     return "notice/list";
   }
 
@@ -57,11 +59,11 @@ public class NoticeController {
   }
 
   @RequestMapping(value = "/notice/add", method = RequestMethod.POST)
-  public ModelAndView add(ModelAndView mv, @ModelAttribute Notice notice, Integer id) {
-    System.out.println(id);
+  public ModelAndView add(ModelAndView mv, @ModelAttribute Notice notice, Integer id,Integer userid) {
     if (id != null) {
       rainservice.update_NoticeInfo(notice);
     } else {
+      notice.setUserId(userid);
       noticeService.insertNotice(notice);
     }
     mv.setViewName("redirect:/notice/list?pageNum=1&pageSize=6");

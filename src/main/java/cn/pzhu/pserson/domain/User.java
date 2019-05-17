@@ -21,12 +21,4 @@ public class User {
     private String createdate;
 
     private String username;
-
-    public String getLevel() {
-        if (this.level.equals("0")) {
-            return "主管";
-        } else {
-            return "人事";
-        }
-    }
 }

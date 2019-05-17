@@ -300,23 +300,21 @@ public class RainServiceImpl implements RainService {
 
   @Override
   public Map<String, Object> get_UserList(int pageNum, int pageSize) {
+    PageHelper.startPage(pageNum, pageSize);
     Map<String, Object> map = new HashMap<>();
     List<User> list = userMapper.get_List();
     map.put("size", list.size());
-    PageHelper.startPage(pageNum, pageSize);
-    List<User> list1 = userMapper.get_List();
-    map.put("list", list1);
+    map.put("list", list);
     return map;
   }
 
   @Override
   public Map<String, Object> get_UserLikeList(String content, int pageNum, int pageSize) {
+    PageHelper.startPage(pageNum, pageSize);
     List<User> list = userMapper.get_LikeList(content);
     Map<String, Object> map = new HashMap<>();
     map.put("size", list.size());
-    PageHelper.startPage(pageNum, pageSize);
-    List<User> list1 = userMapper.get_List();
-    map.put("list", list1);
+    map.put("list", list);
     return map;
   }
 

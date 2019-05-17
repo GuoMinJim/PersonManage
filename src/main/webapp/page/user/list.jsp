@@ -81,14 +81,13 @@
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td> -->
             <td class="td-manage">
               <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
-                <c:if test="${user_session.loginname == 'root'}">
+
                   <a title="编辑"  href="${ctx}/user/add?id=${dept.id }">
                     <i class="layui-icon">&#xe642;</i>
                   </a>                         
               <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
-            </c:if> 
             </td>
           </tr>
 			</c:forEach>

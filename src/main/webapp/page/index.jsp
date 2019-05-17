@@ -44,6 +44,7 @@
     <div class="left-nav">
       <div id="side-nav">
         <ul id="nav">
+        <c:if test="${user_session.level=='0'}">
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b8;</i>
@@ -57,16 +58,17 @@
                             <cite>用户列表</cite>
                         </a>
                     </li >
-                    <c:if test="${user_session.level  ==  '主管'}">
+                  
                         <li>
                             <a _href="${ctx }/user/add">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>添加用户</cite>
                             </a>
                         </li>
-                    </c:if>
+                   
                 </ul>
             </li>
+        </c:if>
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
@@ -80,12 +82,14 @@
                             <cite>部门列表</cite>
                         </a>
                     </li >
+                <c:if test="${user_session.level=='0'}">
                     <li>
                         <a _href="${ctx }/dept/add">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>添加部门</cite>
                         </a>
                     </li >
+                </c:if>
                 </ul>
             </li>
             <li>

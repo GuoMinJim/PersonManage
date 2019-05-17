@@ -20,7 +20,7 @@
   </resultMap>
 
 
-  <select id="getEmployees" resultType="cn.pzhu.pserson.domain.response.EmployeeResDTO">
+  <select id="getEmployees" parameterType="string" resultType="cn.pzhu.pserson.domain.response.EmployeeResDTO">
     SELECT
       e.*, j.`name` AS job,
       d. NAME AS dept,

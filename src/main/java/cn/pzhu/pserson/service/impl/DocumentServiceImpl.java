@@ -31,7 +31,7 @@ public class DocumentServiceImpl implements DocumentService {
 
   @Override
   public void insert(Document document, Integer id) {
-    document.setUserId(id);
+//    document.setUserId(id);
     document.setCreateDate(DateFormate.dateToString(new Date()));
     documentMapper.insert(document);
   }

@@ -26,7 +26,7 @@
   <body>
     <div class="x-body">
         <form class="layui-form" method="POST" id="deptForm" enctype="multipart/form-data" action="${ctx}/document/add">
-        <input type="hidden" name="uid" id="uid" value="${user_session.id }" >
+        <input type="hidden" name="userId" id="userId" value="${userId}" >
         <input type="hidden" name="id" id="id" value="${job.id }" >
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">

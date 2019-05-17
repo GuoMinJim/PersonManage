@@ -48,7 +48,7 @@ public class ChatServer {
     webSocketSet.add(this);     //加入set中
     addOnlineCount();           //在线数加1;
     this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
-    this.userid = (String) httpSession.getAttribute("userid");    //获取当前用户
+    this.userid = (String) httpSession.getAttribute("username");    //获取当前用户
     list.add(userid);           //将用户名加入在线列表
     routetab.put(userid, session);   //将用户名和session绑定到路由表
     String message = getMessage("[" + userid + "]加入聊天室,当前在线人数为" + getOnlineCount() + "位", "notice",

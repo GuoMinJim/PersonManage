@@ -13,11 +13,11 @@ import tk.mybatis.mapper.common.Mapper;
 
 public interface UserMapper extends Mapper<User> {
 
-  @Select("select * from " + Constants.USERTABLE + " order by id ASC")
+  @Select("select * from " + Constants.USERTABLE + " order by createdate DESC")
   List<User> get_List();
 
   @Select("select * from " + Constants.USERTABLE
-      + "  where username like CONCAT('%',#{content},'%') or loginname like CONCAT('%',#{content},'%') order by id ASC")
+      + "  where username like CONCAT('%',#{content},'%') or loginname like CONCAT('%',#{content},'%') order by createdate DESC")
   List<User> get_LikeList(String content);
 
   @Select(

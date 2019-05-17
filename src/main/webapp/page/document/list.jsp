@@ -88,9 +88,11 @@
               </a> -->
               <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/document/add?id=${dept.id }');" href="javascript:;"> --%>
               <a title="下载"  href="${ctx}/document/download?path=${dept.path}&filename=${dept.filename}">下载 </a>
+              <c:if test="${userid==dept.userId}">
               <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
+              </c:if>
             </td>
           </tr>
 				

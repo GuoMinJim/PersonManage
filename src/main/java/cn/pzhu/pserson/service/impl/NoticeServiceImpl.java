@@ -9,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.Date;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -30,6 +31,7 @@ public class NoticeServiceImpl implements NoticeService {
   }
 
   @Override
+  @Transactional
   public void insertNotice(Notice notice) {
     notice.setCreateDate(DateFormate.dateToString(new Date()));
 //    noticeMapper.insert_Info(notice);

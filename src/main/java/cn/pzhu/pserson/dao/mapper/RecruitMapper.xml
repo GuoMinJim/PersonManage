@@ -24,6 +24,7 @@
 				deptName like #{key} or jobName like#{key}
 			</if>
 		</where>
+		order by r.create_date DESC
   </select>
 
 	<select id="getRecruitById" resultType="cn.pzhu.pserson.domain.response.RecruitResDTO">

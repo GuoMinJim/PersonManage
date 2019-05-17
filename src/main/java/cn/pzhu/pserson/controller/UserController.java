@@ -57,7 +57,8 @@ public class UserController {
     User user = rainservice.login(loginname, password);
     if (user != null) {
       session.setAttribute(Constants.USER_SESSION, user);
-      session.setAttribute("userid",user.getUsername());
+      session.setAttribute("userid",user.getId());
+      session.setAttribute("username",user.getUsername());
       session.setAttribute("headerr",userService.countHeader());
       mv.setViewName("redirect:/index");
     } else {
@@ -76,10 +77,13 @@ public class UserController {
 
   @RequestMapping(value = "/user/list", method = RequestMethod.GET)
   public String index(Model model, String content, int pageNum, int pageSize) {
-    Map<String, Object> map = rainservice.get_UserList(pageNum, pageSize);
-    List<User> job_list = (List<User>) map.get("list");
+    Map<String, Object> map = null;
+    List<User> job_list = null;
     if (content != null) {
       map = rainservice.get_UserLikeList(content, pageNum, pageSize);
+      job_list = (List<User>) map.get("list");
+    } else {
+       map = rainservice.get_UserList(pageNum, pageSize);
       job_list = (List<User>) map.get("list");
     }
     int size = (int) map.get("size");

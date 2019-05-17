@@ -47,24 +47,28 @@ public class DocumentController {
   }
 
   @RequestMapping(value = "/document/list", method = RequestMethod.GET)
-  public String index(Model model, String content,int pageNum,int pageSize) {
+  public String index(Model model, String content,int pageNum,int pageSize,
+      HttpSession session) {
     PageInfo doc = documentService.getDoc(pageNum, pageSize, content);
     model.addAttribute("list", doc.getList());
     model.addAttribute("pageInfo",doc);
+    model.addAttribute("userid",session.getAttribute("userid"));
     return "document/list";
   }
 
   @RequestMapping(value = "/document/add", method = RequestMethod.GET)
-  public String add(Model model, Integer id) {
+  public String add(Model model, Integer id,HttpSession session) {
     if (id != null) {
       Document job = rainservice.get_DocumentInfo(id);
       model.addAttribute("job", job);
     }
+    System.out.println(session.getAttribute("userid"));
+    model.addAttribute("userId",session.getAttribute("userid"));
     return "/document/add";
   }
 
   @RequestMapping(value = "/document/add", method = RequestMethod.POST)
-  public ModelAndView add(ModelAndView mv, @ModelAttribute Document document, Integer uid,Integer id,
+  public ModelAndView add(ModelAndView mv, @ModelAttribute Document document, Integer userId,Integer id,
       HttpSession session
   )
       throws Exception {
@@ -83,7 +87,7 @@ public class DocumentController {
       document.setFilename(filename);
       document.setPath(path);
 //      rainservice.insert_DocumentInfo(document);
-      documentService.insert(document,uid);
+      documentService.insert(document,userId);
     }
     mv.setViewName("redirect:/document/list?pageNum=1&pageSize=6");
     return mv;

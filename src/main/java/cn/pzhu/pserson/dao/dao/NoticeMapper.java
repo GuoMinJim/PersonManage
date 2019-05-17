@@ -11,11 +11,11 @@ import tk.mybatis.mapper.common.Mapper;
 
 public interface NoticeMapper extends Mapper<Notice> {
 
-  @Select("select * from " + Constants.NOTICETABLE + " order by id ASC")
+  @Select("select * from " + Constants.NOTICETABLE + " order by createDate DESC")
   List<Notice> get_List();
 
   @Select("select * from " + Constants.NOTICETABLE
-      + "  where title like CONCAT('%',#{content},'%') order by id ASC")
+      + "  where title like CONCAT('%',#{content},'%') order by createDate DESC")
   List<Notice> get_LikeList(String content);
 
   @SelectProvider(type = NoticeDynaSqlProvider.class, method = "insert_Notice")

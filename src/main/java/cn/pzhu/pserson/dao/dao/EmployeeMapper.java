@@ -6,6 +6,7 @@ import cn.pzhu.pserson.domain.response.EmployeeResDTO;
 import cn.pzhu.pserson.util.Constants;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import tk.mybatis.mapper.common.Mapper;
@@ -57,5 +58,5 @@ public interface EmployeeMapper extends Mapper<Employee> {
       + "LEFT JOIN job j ON j.id = e.job_id where name like CONCAT('%',#{content},'%') order by e.id ASC")
   List<EmployeeResDTO> getEmByContent(String content);
 
-  List<EmployeeResDTO> getEmployees(String content);
+  List<EmployeeResDTO> getEmployees(@Param("content") String content);
 }

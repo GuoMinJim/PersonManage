@@ -26,6 +26,7 @@
   <body>
     <div class="x-body">
         <form class="layui-form" method="POST" id="deptForm"  action="${ctx}/notice/add">
+        <input type="hidden" name="userid" id="userid" value="${user_session.id }" >
         <input type="hidden" name="id" id="id" value="${job.id }" >
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
