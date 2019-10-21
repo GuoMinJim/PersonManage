@@ -1,6 +1,11 @@
 # PersonManage
 人事管理系统（Spring boot+ssm + jsp）
 # pull代码请先star~~~
+##如果git无法正常拉取代码 
+执行
+git config --global http.postBuffer 524288000
+再执行
+git config  --global   http.sslVerify "false"
 # 项目描述
 此系统是我的毕业设计项目，部分代码引用 https://gitee.com/rainweb/personnel_management_system
 原项目是比较简单的ssm非maven项目，我已经升级为spring boot项目，
@@ -12,3 +17,5 @@
 ![登录页](http://github.com/GuoMinJim/PersonManage/raw/master/images/login1.jpg)
 ![首页](http://github.com/GuoMinJim/PersonManage/raw/master/images/index1.png)
 ![表格图](http://github.com/GuoMinJim/PersonManage/raw/master/images/table1.jpg)
+
+
