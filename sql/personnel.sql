@@ -116,3 +116,9 @@ CREATE TABLE `user` (
   `username` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+
+
+INSERT INTO `personnel`.`user`(`id`, `loginname`, `password`, `level`, `createdate`, `username`) VALUES (9, 'root', '4a7d1ed414474e4033ac29ccb8653d9b', '0', '19-05-17 02:04:50', '金国民');
+INSERT INTO `personnel`.`user`(`id`, `loginname`, `password`, `level`, `createdate`, `username`) VALUES (10, 'huangjie', '4a7d1ed414474e4033ac29ccb8653d9b', '1', '19-05-17 02:13:13', '黄杰');
+
