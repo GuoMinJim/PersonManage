@@ -19,3 +19,7 @@ git config  --global   http.sslVerify "false"
 ![表格图](http://github.com/GuoMinJim/PersonManage/raw/master/images/table1.jpg)
 
 
+＃补充
+##注意实体使用@Data注解 需要安装lambok插件才能正常使用
+
+
