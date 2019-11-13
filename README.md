@@ -21,5 +21,6 @@ git config  --global   http.sslVerify "false"
 
 # 补充
 ## 注意实体使用@Data注解 需要安装IDEA lambok插件才能正常使用
+## 把webapp目录添加为Resources 
 
 
