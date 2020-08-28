@@ -7,9 +7,9 @@
 git config --global http.postBuffer 524288000
 再执行
 git config  --global   http.sslVerify "false"
-## 推荐使用IDEA运行此项目,对eclipse估计不太友好
 再执行
 git config  --global   http.sslVerify "false"
+## 推荐使用IDEA运行此项目,对eclipse估计不太友好
 # 项目描述
 此系统是我的毕业设计项目，部分代码引用 https://gitee.com/rainweb/personnel_management_system
 原项目是比较简单的ssm非maven项目，我已经升级为spring boot项目，
@@ -24,6 +24,7 @@ git config  --global   http.sslVerify "false"
 
 
 # 补充
+## 此项目需要一定java基础，对spring及mybatis有一定了解
 ## 注意实体使用@Data注解 需要安装IDEA lambok插件才能正常使用
 ## 把webapp目录添加为Resources 
 
