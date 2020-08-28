@@ -1,10 +1,13 @@
 # PersonManage
-人事管理系统（Spring boot+ssm + jsp）
+# 人事管理系统（Spring boot + ssm + jsp）
 有问题可加入群聊 806221669
 # pull代码请先star~~~
-##如果git无法正常拉取代码 
+## 如果git无法正常拉取代码 
 执行
 git config --global http.postBuffer 524288000
+再执行
+git config  --global   http.sslVerify "false"
+## 推荐使用IDEA运行此项目,对eclipse估计不太友好
 再执行
 git config  --global   http.sslVerify "false"
 # 项目描述
