@@ -1,5 +1,6 @@
 # PersonManage
 人事管理系统（Spring boot+ssm + jsp）
+有问题可加入群聊 806221669
 # pull代码请先star~~~
 ##如果git无法正常拉取代码 
 执行
