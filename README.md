@@ -25,7 +25,7 @@ git config  --global   http.sslVerify "false"
 
 # 补充
 ## 此项目需要一定java基础，对spring及mybatis有一定了解
-## 注意实体使用@Data注解 需要安装IDEA lambok插件才能正常使用
+## 注意实体使用@Data注解 需要安装IDEA lombok插件才能正常使用
 ## 把webapp目录添加为Resources 
 
 
